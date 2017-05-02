@@ -1,10 +1,10 @@
-/* Given two integers, which can be positive and negative, 
+/* Given two integers, which can be positive and negative,
 find the sum of all the numbers between and including a and b,
 and return the sum. If both numbers are equal return a or b.
 
 Note! a and b are not ordered!
 
-Example: 
+Example:
 getSum(1, 0) == 1   // 1 + 0 = 1
 getSum(1, 2) == 3   // 1 + 2 = 3
 getSum(0, 1) == 1   // 0 + 1 = 1
@@ -13,32 +13,46 @@ getSum(-1, 0) == -1 // -1 + 0 = -1
 getSum(-1, 2) == 2  // -1 + 0 + 1 + 2 = 2
 */
 
+// function getSum( a, b ) {
+//   console.log(a,b,"YOLO")
+//   if (a === b) {
+//     return a
+//   }
+//
+//   var accumulator = 0;
+//
+//   if (a < b) {
+//     for (var i = a ; i <= b ; i++) {
+//       accumulator += a
+//       // a++
+//     }
+//   } else {
+//     for (var i = b ; i <= a ; i++) {
+//       accumulator += b
+//       // b++
+//     }
+//   }
+//   return accumulator
+// } // END FUNCTION
+
+
 function getSum( a, b ) {
-  console.log(a,b,"YOLO")
-  if (a === b) {
-    return a
-  }
+	if (a === b){
+		return a;
+	}
+	let theNumbers = [a,b].sort((a,b)=>{return a - b});
+	let lower = theNumbers[0];
+	let higher = theNumbers[1];
+	let numbersInBetween = [];
+	for (let i = lower; i <= higher; i++){
+		numbersInBetween.push(i);
+	}
+	return numbersInBetween.reduce((a,b)=>{return a+b;});
 
-  var accumulator = 0;
-
-  if (a < b) {
-    for (var i = a ; i <= b ; i++) {
-      accumulator += a
-      // a++
-    }
-  } else {
-    for (var i = b ; i <= a ; i++) {
-      accumulator += b
-      // b++
-    }
-  }
-  return accumulator
-} // END FUNCTION
+}
 
 
 module.exports = {
   getSum:getSum,
   attendance:"WORD UP"
 }
-
-

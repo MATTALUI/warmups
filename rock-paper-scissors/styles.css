@@ -1,0 +1,18 @@
+.attack{
+  width:250px;
+  height: 250px;
+  border-color: black;
+  border-style: solid;
+
+}
+.attack:hover{
+  border-color: yellow;
+}
+#attackSelector{
+  display: flex;
+  flex-direction: row;
+}
+#scoreBoard{
+  border-style: solid;
+  border-color: black;
+}
