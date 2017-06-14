@@ -8,7 +8,6 @@ const winningConditions = {
 
 
 function startup(){
-  console.log('hello');
   $('#rock').on('click', attack);
   $('#paper').on('click', attack);
   $('#scissors').on('click', attack);
@@ -18,16 +17,14 @@ function startup(){
 function attack(event){
   let userAttack =event.target.id
   let compAttack = computerRoll();
-  // console.log(userAttack, ' vs ', compAttack);
   if (userAttack == compAttack){
-    alert('tie!');
-    return;
+    $('h3')[0].innerHTML = "It was a tie!"
   }else if(winningConditions[userAttack] == compAttack){
     $('#yourScore').html(Number($('#yourScore').html())+1 );
-    alert('You win!');
+    $('h3')[0].innerHTML = "You WIn!"
   }else{
     $('#compScore').html(Number($('#compScore').html())+1 );
-    alert('comp wins... :(');
+    $('h3')[0].innerHTML = "Computer wins!"
   }
 }
 
